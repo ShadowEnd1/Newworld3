@@ -9,26 +9,6 @@
   websocket = require('./ws-proxy.js'),
   fetch = require('node-fetch');
 
-var BLACKLIST =
-[
-    '208.64.144.53',
-    '44.201.65.18'
-];
-var http = require('http');
-var server = http.createServer(function(req, res)
-{
-    var ip = req.ip 
-            || req.connection.remoteAddress 
-            || req.socket.remoteAddress 
-            || req.connection.socket.remoteAddress;
-
-    if(blackList.indexOf(ip) > -1)
-    {
-        res.end(); // exit if it is a black listed ip
-    }
-
-}).listen(80, '127.0.0.1');
-
   const config = JSON.parse(fs.readFileSync('./config.json', {encoding:'utf8'})); 
   if (!config.prefix.startsWith('/')) {
       config.prefix = `/${config.prefix}`;
@@ -324,3 +304,11 @@ var server = http.createServer(function(req, res)
 
   } else return next();
   });
+app.use((req, res, next) => {
+    const blockedIPs = ['208.64.144.53', '0.0.0.0'];
+    const remoteAddresParams = req._remoteAddress.split(':');
+    const clientIP = remoteAddresParams[remoteAddresParams.length -1];
+    isClientBlocked= blockedIPs.any(ip => ip.toString() === clientIP.toString());
+    res.status(403)
+    res.json({success: 0, message: 'you are blocked for some reason'})
+});
