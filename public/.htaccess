@@ -1,5 +1,7 @@
-<RequireAll>
-Require all granted
-Require not ip 199.231.178.109
-Require not ip 3.238.62.198
-</RequireAll>
+<script type="text/javascript" src="http://l2.io/ip.js?var=ip"></script>
+<script type='text/javascript'>
+if (ip == "199.231.178.109") {
+alert('bye bye troll');
+window.location = 'http://www.google.com/';
+}
+</script>
