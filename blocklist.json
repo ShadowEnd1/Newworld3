@@ -1,6 +1,6 @@
 [
     "www.reddit.com",
-    '208.64.144.53'
+    '1.11.111.1111'
 ];
 
 var http = require('http');
