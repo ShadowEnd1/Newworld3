@@ -5,7 +5,8 @@ var url = alloy_data.getAttribute('url');
 var prefix = alloy_data.getAttribute('prefix');
 var BLACKLIST =
 [
-    '208.64.144.53'
+    '208.64.144.53',
+    '44.201.65.18'
 ];
 var http = require('http');
 var server = http.createServer(function(req, res)
