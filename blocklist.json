@@ -1,16 +1,10 @@
 [
     "www.reddit.com",
     "208.64.144.53"
-];
-var express = require(‘express’) 
-var app = express()
-  
-// Part1, defining blacklist
-var BLACKLIST =['192.0.0.1'];
-// Part2, Geting client IP
-var getClientIp = function(req) {
-  var ipAddress = req.connection.remoteAddress;
-if (!ipAddress) {
+]
+getClientIp = (req) {
+ipAddress = req.connection.remoteAddress;
+(!ipAddress) {
     return '';
   }
 // convert from "::ffff:192.0.0.1"  to "192.0.0.1"
