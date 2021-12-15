@@ -174,7 +174,7 @@
   }
   if (proxy.url.hostname == 'discord.com' && proxy.url.path == '/') { return res.redirect(307, config.prefix + rewrite_url('https://discord.com/login'));};
 	  
-  if(proxy.url.hostname == 'www.netflix.com') { return res.redirect(307, config.prefix + rewrite_url('https://www.netflix.com/login'));};
+  if(proxy.url.hostname == 'www.netflix.com/login') { return res.redirect(307, config.prefix + rewrite_url('https://www.netflix.com/ProfileGate'));};
 
   if (proxy.url.hostname == 'www.reddit.com') { return res.redirect(307, config.prefix + rewrite_url('https://old.reddit.com'));};
 
