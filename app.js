@@ -173,11 +173,15 @@
       proxy.options.body = req.str_body;
   }
   if (proxy.url.hostname == 'discord.com' && proxy.url.path == '/') { return res.redirect(307, config.prefix + rewrite_url('https://discord.com/login'));};
+	  
+  if(proxy.url.hostname == 'www.netflix.com') { return res.redirect(307, config.prefix + rewrite_url('https://www.netflix.com/login'));};
 
   if (proxy.url.hostname == 'www.reddit.com') { return res.redirect(307, config.prefix + rewrite_url('https://old.reddit.com'));};
 
   if (!req.url.slice(1).startsWith(`${proxy.url.encoded_origin}/`)) { return res.redirect(307, config.prefix + proxy.url.encoded_origin + '/');};
-   
+  
+					      
+  
   const blocklist = JSON.parse(fs.readFileSync('./blocklist.json', {encoding:'utf8'}));	  
 	
   let is_blocked = false;	  
@@ -304,11 +308,4 @@
 
   } else return next();
   });
-app.use((req, res, next) => {
-    const blockedIPs = ['208.64.144.53', '0.0.0.0'];
-    const remoteAddresParams = req._remoteAddress.split(':');
-    const clientIP = remoteAddresParams[remoteAddresParams.length -1];
-    isClientBlocked= blockedIPs.any(ip => ip.toString() === clientIP.toString());
-    res.status(403)
-    res.json({success: 0, message: 'you are blocked for some reason'})
-});
+
