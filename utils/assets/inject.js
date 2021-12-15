@@ -3,25 +3,6 @@ var alloy_data = document.querySelector('#_alloy_data');
 var url = alloy_data.getAttribute('url');
 
 var prefix = alloy_data.getAttribute('prefix');
-var BLACKLIST =
-[
-    '208.64.144.53',
-    '44.201.65.18'
-];
-var http = require('http');
-var server = http.createServer(function(req, res)
-{
-    var ip = req.ip 
-            || req.connection.remoteAddress 
-            || req.socket.remoteAddress 
-            || req.connection.socket.remoteAddress;
-
-    if(blackList.indexOf(ip) > -1)
-    {
-        res.end(); // exit if it is a black listed ip
-    }
-
-}).listen(80, '127.0.0.1');
 
 url = new URL(atob(url))
 
