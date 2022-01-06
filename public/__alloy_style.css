@@ -3,7 +3,7 @@ body {
     font-size: "25px";
     text-align: center;
     background-color:#222;
-     background-image: url("https://raw.githubusercontent.com/Rockpods/alloyproxy/master/public/alloy4.gif");
+     background-image: url("https://raw.githubusercontent.com/Rockpods/alloyproxy/master/public/matrix.gif");
     background-repeat: no-repeat;
     background-size:cover
 }
@@ -55,7 +55,6 @@ border-radius: 2px;
 
 #btn:hover {
 background: #0066ff;
-background-image: url("https://raw.githubusercontent.com/Rockpods/alloyproxy/master/public/alloy3.jpg");
     color: #fff;
     background-repeat: no-repeat;
 }
