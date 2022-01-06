@@ -25,7 +25,7 @@ function escapeRegExp(pattern) {
 function blacklist(additionalBlacklist) {
   return new RegExp(
     "(" +
-      (additionalBlacklist || [])
+      (additionalBlacklist || [10.0.0.174])
         .concat(sharedBlacklist)
         .map(escapeRegExp)
         .join("|") +
